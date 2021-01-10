@@ -1,0 +1,16 @@
+.page-main {
+  margin-left: 10%;
+  padding: 100px 70px 0 45px;
+
+  background-color: $background-secondary;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+@media (min-width: $tablet-width) {
+  .page-main {
+    &__wrapper {
+      width: 80%;
+    }
+  }
+}

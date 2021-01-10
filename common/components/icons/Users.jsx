@@ -6,7 +6,7 @@ export const UsersIcon = () => (
     x="0px"
     y="0px"
     viewBox="0 0 19.738 19.738"
-    style={{ enableBackground: 'new 0 0 19.738 19.738;' }}
+    style={{ enableBackground: 'new 0 0 19.738 19.738' }}
     xmlSpace="preserve"
   >
     <g>

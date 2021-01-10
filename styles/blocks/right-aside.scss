@@ -1,0 +1,19 @@
+.right-aside {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 20%;
+  max-width: 350px;
+  padding: 20px 5px;
+
+  background-color: $white;
+  box-shadow: 0 0 20px rgba(192, 192, 192, 0.25);
+
+  &__img {
+    width: 50px;
+
+    border-radius: 50%;
+  }
+}

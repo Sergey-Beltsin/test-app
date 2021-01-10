@@ -1,0 +1,95 @@
+.posts {
+  @include flex;
+
+  &__item {
+    @include flex-sb;
+    flex-direction: column;
+
+    padding: 20px 20px 20px 30px;
+    margin-bottom: 20px;
+
+    background-color: $white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(192, 192, 192, 0.25);
+
+    &__inner {
+      margin-bottom: 10px;
+    }
+
+    &__title {
+      margin: 0;
+      margin-bottom: 10px;
+
+      font-size: 18px;
+    }
+
+    &__content {
+      font-size: 14px;
+    }
+
+    &__user-nav {
+      @include flex;
+    }
+
+    &__comments-icon {
+      margin-left: auto;
+      padding: 10px;
+
+      background-color: $buttons-background;
+      border-radius: 8px;
+      cursor: pointer;
+
+      transition: 0.2s ease;
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+      & svg {
+        width: 25px;
+        height: 25px;
+
+        position: relative;
+        top: 2px;
+
+        & path {
+          fill: $color;
+
+          transition: 0.2s ease;
+        }
+      }
+
+      &--active {
+        background-color: $buttons-background-active;
+
+        &:hover {
+          opacity: 1;
+        }
+
+        & svg path {
+          fill: $color-active;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .posts {
+    &__item {
+      width: calc(50% - 60px);
+
+      &:not(:nth-child(2n)) {
+        margin-right: 20px;
+      }
+
+      &__title {
+        font-size: 22px;
+      }
+
+      &__content {
+        font-size: 16px;
+      }
+    }
+  }
+}

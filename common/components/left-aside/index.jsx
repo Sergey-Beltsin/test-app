@@ -16,16 +16,19 @@ export const LeftAside = () => {
 
   return (
     <aside className="left-aside">
-      <ul className="left-aside__list">
-        {links.map((item) => (
-          <NavLink
-            icon={() => item.icon}
-            href={item.href}
-          >
-            {item.title}
-          </NavLink>
-        ))}
-      </ul>
+      <nav className="left-aside__nav">
+        <ul className="left-aside__list">
+          {links.map((item, i) => (
+            <NavLink
+              icon={() => item.icon}
+              href={item.href}
+              key={`${item.title}-${i}--nav-link`}
+            >
+              {item.title}
+            </NavLink>
+          ))}
+        </ul>
+      </nav>
     </aside>
   );
 };
