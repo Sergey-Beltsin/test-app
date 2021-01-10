@@ -57,13 +57,6 @@ export function fetchUsers() {
   };
 }
 
-export function getUsers(users) {
-  return {
-    type: GET_USERS,
-    users,
-  };
-}
-
 export function fetchCommentsStart() {
   return {
     type: FETCH_COMMENTS_START,
