@@ -27,7 +27,6 @@ export default function mainReducer(state = initialState, action) {
         ...state, error: true,
       };
     case FETCH_USERS:
-      console.log(state, action.users);
       return {
         ...state, users: action.users,
       };
