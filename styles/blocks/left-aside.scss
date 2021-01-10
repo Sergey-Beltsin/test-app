@@ -1,0 +1,62 @@
+.left-aside {
+  padding: 100px 0 0 45px;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  &__list {
+    @include reset-list;
+  }
+
+  &__item {
+    @include flex;
+
+    margin-bottom: 20px;
+
+    transition: 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &--active {
+      &:hover {
+        opacity: 1;
+      }
+
+      & .left-aside__link {
+        color: $color-active;
+      }
+
+      & .left-aside__img svg path {
+        fill: $primary !important;
+      }
+    }
+  }
+
+  &__link {
+    font-weight: bold;
+    color: $color;
+
+    transition: 0.2s ease;
+  }
+
+  &__img {
+    margin-right: 15px;
+
+    position: relative;
+    top: 3px;
+
+    & svg {
+      width: 20px;
+      height: 20px;
+
+      & path {
+        fill: $color !important;
+
+        transition: 0.2s ease;
+      }
+    }
+  }
+}
