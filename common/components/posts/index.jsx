@@ -22,6 +22,7 @@ export const Posts = () => {
         setLoadingId(-1);
       }
       setOpenedComments((prevState) => [...prevState, i]);
+      return;
     }
     const postId = openedComments.findIndex((item) => item === i);
 
