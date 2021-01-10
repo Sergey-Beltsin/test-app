@@ -1,10 +1,10 @@
 .posts {
   @include flex;
 
-  &__item {
-    @include flex-sb;
-    flex-direction: column;
+  align-items: flex-start;
 
+  &__item {
+    min-height: 275px;
     padding: 20px 20px 20px 30px;
     margin-bottom: 20px;
 
@@ -12,8 +12,13 @@
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(192, 192, 192, 0.25);
 
-    &__inner {
-      margin-bottom: 10px;
+    &__wrapper {
+      @include flex-sb;
+
+      flex-direction: column;
+      flex-wrap: nowrap;
+
+      min-height: 275px;
     }
 
     &__title {
@@ -72,12 +77,53 @@
       }
     }
   }
+
+  &__comments {
+    &__list {
+      @include reset-list;
+
+      overflow: hidden;
+
+      animation: anim-in 0.75s ease;
+    }
+
+    &__item {
+      margin-bottom: 30px;
+
+      &:first-child {
+        margin-top: 15px;
+      }
+    }
+
+    &__wrapper {
+      @include flex;
+
+      align-items: center;
+      flex-wrap: nowrap;
+
+      margin-bottom: 10px;
+    }
+
+    &__img {
+      width: 50px;
+
+      border-radius: 50%;
+    }
+
+    &__name {
+      display: block;
+      margin-left: 10px;
+
+      font-weight: 500;
+    }
+  }
 }
 
-@media (min-width: $tablet-width) {
+@media (min-width: $pc-middle-width) {
   .posts {
     &__item {
       width: calc(50% - 60px);
+      max-width: 600px;
 
       &:not(:nth-child(2n)) {
         margin-right: 20px;
@@ -91,5 +137,13 @@
         font-size: 16px;
       }
     }
+  }
+}
+
+@keyframes anim-in {
+  from {
+    max-height: 0;
+  } to {
+    max-height: 1000px;
   }
 }

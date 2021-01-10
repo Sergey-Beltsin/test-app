@@ -5,7 +5,7 @@ import {
   FETCH_POSTS,
   FETCH_POSTS_ERROR,
   FETCH_USERS,
-  FETCH_USERS_ERROR,
+  FETCH_USERS_ERROR, GET_USERS,
 } from '../actions/action-types';
 
 const initialState = {
@@ -27,12 +27,17 @@ export default function mainReducer(state = initialState, action) {
         ...state, error: true,
       };
     case FETCH_USERS:
+      console.log(state, action.users);
       return {
         ...state, users: action.users,
       };
     case FETCH_USERS_ERROR:
       return {
         ...state, error: true,
+      };
+    case GET_USERS:
+      return {
+        ...state, users: action.users,
       };
     case FETCH_COMMENTS_START:
       return {

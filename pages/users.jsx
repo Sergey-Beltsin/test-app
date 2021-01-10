@@ -1,20 +1,15 @@
-import { initializeStore } from '../store/store';
+import { wrapper } from '../store/store';
 import { fetchUsers } from '../store/actions/main';
 import { Users } from '../common/components/users';
 
-const UsersPage = ({ initialReduxState }) => (
+const UsersPage = () => (
   <section className="users">
-    <Users users={initialReduxState.users} />
+    <Users />
   </section>
 );
 
 export default UsersPage;
 
-export async function getServerSideProps() {
-  const reduxStore = initializeStore();
-  const { dispatch } = reduxStore;
-
-  await dispatch(fetchUsers());
-
-  return { props: { initialReduxState: reduxStore.getState() } };
-}
+export const getServerSideProps = wrapper.getServerSideProps(async ({ store }) => {
+  await store.dispatch(fetchUsers());
+});

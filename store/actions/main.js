@@ -6,7 +6,7 @@ import {
   FETCH_POSTS,
   FETCH_POSTS_ERROR,
   FETCH_USERS,
-  FETCH_USERS_ERROR,
+  FETCH_USERS_ERROR, GET_USERS,
 } from './action-types';
 
 export function fetchPostsSuccess(posts) {
@@ -54,6 +54,13 @@ export function fetchUsers() {
     } catch (e) {
       dispatch(fetchUsersError());
     }
+  };
+}
+
+export function getUsers(users) {
+  return {
+    type: GET_USERS,
+    users,
   };
 }
 

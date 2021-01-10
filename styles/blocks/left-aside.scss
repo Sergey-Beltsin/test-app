@@ -1,9 +1,79 @@
 .left-aside {
-  padding: 100px 0 0 45px;
+  padding: 100px 45px 0 45px;
 
   position: fixed;
-  left: 0;
+  left: -200px;
   top: 0;
+  bottom: 0;
+  z-index: 300;
+
+  background-color: $white;
+  box-shadow: 0 0 20px rgba(192, 192, 192, 0.25);
+
+  transition: 0.2s ease;
+
+  &--opened {
+    left: 0;
+  }
+
+  &__btn {
+    width: 50px;
+    height: 50px;
+
+    position: fixed;
+    left: 30px;
+    top: 20px;
+    z-index: 500;
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &::after,
+    &::before {
+      content: '';
+
+      position: absolute;
+      left: 15px;
+
+      width: 20px;
+      height: 1px;
+
+      background-color: $primary;
+
+      transition: top 0.1s cubic-bezier(0.52, 0.16, 0.52, 0.84) 0.2s,
+      transform 0.1s cubic-bezier(0.52, 0.16, 0.52, 0.84);
+    }
+
+    &::after {
+      top: 20px;
+    }
+
+    &::before {
+      top: 27px;
+    }
+
+    &--opened {
+      &::after,
+      &::before {
+        transition: top 0.1s cubic-bezier(0.52, 0.16, 0.52, 0.84),
+        transform 0.1s cubic-bezier(0.52, 0.16, 0.52, 0.84) 0.2s;
+      }
+
+      &::after {
+        top: 23px;
+
+        transform: rotate(45deg);
+      }
+
+      &::before {
+        top: 23px;
+
+        transform: rotate(-45deg);
+      }
+    }
+  }
 
   &__list {
     @include reset-list;
@@ -57,6 +127,21 @@
 
         transition: 0.2s ease;
       }
+    }
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .left-aside {
+    padding-right: 0;
+
+    left: 0;
+
+    background-color: transparent;
+    box-shadow: none;
+
+    &__btn {
+      display: none;
     }
   }
 }

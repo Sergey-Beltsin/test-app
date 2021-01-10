@@ -1,20 +1,15 @@
-import { Posts } from '../common/components/posts';
-import { initializeStore } from '../store/store';
+import { wrapper } from '../store/store';
 import { fetchPosts } from '../store/actions/main';
+import { Posts } from '../common/components/posts';
 
-export default function Home({ initialReduxState }) {
-  return (
-    <section className="posts">
-      <Posts posts={initialReduxState.posts} />
-    </section>
-  );
-}
+const Home = () => (
+  <section className="posts">
+    <Posts />
+  </section>
+);
 
-export async function getServerSideProps() {
-  const reduxStore = initializeStore();
-  const { dispatch } = reduxStore;
+export default Home;
 
-  await dispatch(fetchPosts());
-
-  return { props: { initialReduxState: reduxStore.getState() } };
-}
+export const getServerSideProps = wrapper.getServerSideProps(async ({ store }) => {
+  await store.dispatch(fetchPosts());
+});

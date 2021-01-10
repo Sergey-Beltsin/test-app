@@ -1,3 +1,5 @@
+// eslint-disable-next-line max-len
+/* eslint-disable jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */
 import { useRef } from 'react';
 import { useRouter } from 'next/router';
 
@@ -12,7 +14,6 @@ export const User = ({
   const router = useRouter();
 
   return (
-    // eslint-disable-next-line jsx-a11y/click-events-have-key-events
     <li
       onClick={(event) => phoneLinkRef.current && emailLinkRef.current
         && event.target !== phoneLinkRef.current && event.target !== emailLinkRef.current && router.push(`/?id=${id}`)}
